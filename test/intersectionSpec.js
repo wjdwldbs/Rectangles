@@ -7,8 +7,8 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
 
     let intersections = rectanglesIntersectAt(rec1, rec1);
@@ -33,14 +33,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 30,
       bottomLeftY: 10,
-      topLeftX: 80,
-      topLeftY: 70
+      topRightX: 80,
+      topRightY: 70
     }
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
@@ -65,14 +65,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 40,
       bottomLeftY: 0,
-      topLeftX: 80,
-      topLeftY: 30
+      topRightX: 80,
+      topRightY: 30
     }
 
     let intersections = rectanglesIntersectAt(rec1, rec2);
@@ -97,14 +97,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 30,
       bottomLeftY: 50,
-      topLeftX: 80,
-      topLeftY: 100
+      topRightX: 80,
+      topRightY: 100
     }
 
     let intersections = rectanglesIntersectAt(rec1, rec2);
@@ -129,14 +129,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 100,
       bottomLeftY: 50,
-      topLeftX: 150,
-      topLeftY: 100
+      topRightX: 150,
+      topRightY: 100
     }
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
@@ -150,14 +150,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 200,
       bottomLeftY: 80,
-      topLeftX: 340,
-      topLeftY: 160
+      topRightX: 340,
+      topRightY: 160
     }
 
     let intersections = rectanglesIntersectAt(rec1, rec2);
@@ -169,14 +169,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 30,
       bottomLeftY: 30,
-      topLeftX: 80,
-      topLeftY: 40
+      topRightX: 80,
+      topRightY: 40
     }
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
@@ -187,14 +187,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 100,
       bottomLeftY: 0,
-      topLeftX: 150,
-      topLeftY: 30
+      topRightX: 150,
+      topRightY: 30
     }
 
     let intersections = rectanglesIntersectAt(rec1, rec2);
@@ -219,14 +219,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 20,
       bottomLeftY: 40,
-      topLeftX: 50,
-      topLeftY: 50
+      topRightX: 50,
+      topRightY: 50
     }
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
@@ -251,14 +251,14 @@ describe('rectanglesIntersectAt', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
-      topLeftX: 100,
-      topLeftY: 50
+      topRightX: 100,
+      topRightY: 50
     }
     let rec2 = {
       bottomLeftX: 20,
       bottomLeftY: 30,
-      topLeftX: 100,
-      topLeftY: 40
+      topRightX: 100,
+      topRightY: 40
     }
 
     let intersections = rectanglesIntersectAt(rec2, rec1);

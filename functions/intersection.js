@@ -3,8 +3,8 @@ const rectanglesIntersectAt = function (rectangle1, rectangle2) {
   let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX);
   let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY);
  
-  let x2 = Math.min(rectangle1.topLeftX, rectangle2.topLeftX);
-  let y2 = Math.min(rectangle1.topLeftY, rectangle2.topLeftY);
+  let x2 = Math.min(rectangle1.topRightX, rectangle2.topRightX);
+  let y2 = Math.min(rectangle1.topRightY, rectangle2.topRightY);
 
   if ((x1 > x2 || y1 > y2)){
     return [];
@@ -40,13 +40,13 @@ const rectanglesIntersectAt = function (rectangle1, rectangle2) {
   for (let coordinate in coordinates){
     let currentCoordinate = coordinates[coordinate];
 
-    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topLeftX) && 
-       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topLeftY)) {
+    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topRightX) && 
+       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topRightY)) {
 
       intersectingCoordinates.push(currentCoordinate);
       
-    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topLeftX) && 
-      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topLeftY)) {
+    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topRightX) && 
+      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topRightY)) {
 
       intersectingCoordinates.push(currentCoordinate);
     }
