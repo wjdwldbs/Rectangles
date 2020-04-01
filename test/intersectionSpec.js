@@ -141,7 +141,7 @@ describe('rectanglesIntersectAt', function(){
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
 
-    expect(intersections.length).to.equal(1)
+    expect(intersections.length).to.equal(1);
     expect(intersections[0][0]).to.equal(100);
     expect(intersections[0][1]).to.equal(50);
   })
@@ -162,7 +162,7 @@ describe('rectanglesIntersectAt', function(){
 
     let intersections = rectanglesIntersectAt(rec1, rec2);
 
-    expect(intersections.length).to.equal(0)
+    expect(intersections.length).to.equal(0);
   })
 
   it ('should not return points of intersection if an input rectangle is contained within the other input rectangle', function(){

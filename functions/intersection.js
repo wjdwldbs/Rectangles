@@ -1,10 +1,10 @@
-var rectanglesIntersectAt = function (rectangle1, rectangle2) {
+const rectanglesIntersectAt = function (rectangle1, rectangle2) {
 
-  let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX)
-  let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY)
+  let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX);
+  let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY);
  
-  let x2 = Math.min(rectangle1.topLeftX, rectangle2.topLeftX)
-  let y2 = Math.min(rectangle1.topLeftY, rectangle2.topLeftY)
+  let x2 = Math.min(rectangle1.topLeftX, rectangle2.topLeftX);
+  let y2 = Math.min(rectangle1.topLeftY, rectangle2.topLeftY);
 
   if ((x1 > x2 || y1 > y2)){
     return [];
@@ -20,15 +20,18 @@ var rectanglesIntersectAt = function (rectangle1, rectangle2) {
   if (coordinates.x1y1[0] === coordinates.x2y2[0] && coordinates.x1y1[1] === coordinates.x2y2[1] ||
       coordinates.x1y1[0] === coordinates.x1y2[0] && coordinates.x1y1[1] === coordinates.x1y2[1] ||
       coordinates.x1y1[0] === coordinates.x2y1[0] && coordinates.x1y1[1] === coordinates.x2y1[1]) {
-        delete coordinates.x1y1;
+
+      delete coordinates.x1y1;
   }
 
   if (coordinates.x2y2[0] === coordinates.x1y2[0] && coordinates.x2y2[1] === coordinates.x1y2[1] ||
       coordinates.x2y2[0] === coordinates.x2y1[0] && coordinates.x2y2[1] === coordinates.x2y1[1]) {
-        delete coordinates.x2y2;
+      
+      delete coordinates.x2y2;
   }
 
   if (coordinates.x1y2[0] === coordinates.x2y1[0] && coordinates.x1y2[1] === coordinates.x2y1[1]) {
+
       delete coordinates.x1y2;
   }
 
@@ -36,10 +39,15 @@ var rectanglesIntersectAt = function (rectangle1, rectangle2) {
 
   for (let coordinate in coordinates){
     let currentCoordinate = coordinates[coordinate];
-    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topLeftX) && (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topLeftY)) {
+
+    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topLeftX) && 
+       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topLeftY)) {
+
       intersectingCoordinates.push(currentCoordinate);
       
-    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topLeftX) && (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topLeftY)) {
+    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topLeftX) && 
+      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topLeftY)) {
+
       intersectingCoordinates.push(currentCoordinate);
     }
   }

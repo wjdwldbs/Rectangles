@@ -1,7 +1,6 @@
 # nuvalence_rectangle
 
 ## Requirements
-<!-- You will need [Node.js](https://nodejs.org/en/) installed on your system. -->
 
 ## Installation & Setup
 
