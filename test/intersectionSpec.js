@@ -29,7 +29,7 @@ describe('rectanglesIntersectAt', function(){
     expect(correctResult).to.be.true;
   });
 
-  it ('should return four points of intersection if input rectangles crisscross each other', function(){
+  it ('should return four points of intersection if input rectangles crisscross', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
@@ -215,7 +215,7 @@ describe('rectanglesIntersectAt', function(){
     expect(correctResult).to.be.true;
   });
 
-  it ('should return three points of intersection if input rectangles are aligned in one corner', function(){
+  it ('should return three points of intersection if input rectangles align in one corner', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
@@ -247,7 +247,7 @@ describe('rectanglesIntersectAt', function(){
     expect(correctResult).to.be.true;
   });
 
-  it ('should return four points of intersection if one input rectangle contain the other input rectangle and one pair parelle sides aligned with each other ', function(){
+  it ('should return four points of intersection if one input rectangle contain the other input rectangle and one pair of parellel sides aligns', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,

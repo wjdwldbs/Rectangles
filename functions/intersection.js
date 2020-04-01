@@ -53,6 +53,6 @@ const rectanglesIntersectAt = function (rectangle1, rectangle2) {
   }
   
   return intersectingCoordinates;
-}
+};
 
 module.exports = rectanglesIntersectAt;

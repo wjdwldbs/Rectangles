@@ -26,7 +26,6 @@ const isRectangleContained = function (rectangle1, rectangle2) {
     } 
   }
 
-  //return false;
-}
+};
 
 module.exports = isRectangleContained;

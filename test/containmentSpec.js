@@ -38,7 +38,7 @@ describe('isRectangleContained', function(){
     expect(isRectangleContained(rec1, rec2)).to.be.false;
   });
 
-  it('should return false if one input rectangle is contained in the other but one corner align with each other', function(){
+  it('should return false if one input rectangle is contained in the other but one corner aligns', function(){
 
     let rec1 = {
       bottomLeftX: 10,
@@ -56,7 +56,7 @@ describe('isRectangleContained', function(){
     expect(isRectangleContained(rec2, rec1)).to.be.false;
   });
 
-  it('should return false if one input rectangle is contained in the other but one side align with each other', function(){
+  it('should return false if one input rectangle is contained in the other but one side aligns', function(){
 
     let rec1 = {
       bottomLeftX: 30,
@@ -92,7 +92,7 @@ describe('isRectangleContained', function(){
     expect(isRectangleContained(rec1, rec2)).to.be.false;
   });
 
-  it ('should return false if input rectangles intersect each other', function(){
+  it ('should return false if input rectangles intersect', function(){
     let rec1 = {
       bottomLeftX: 20,
       bottomLeftY: 20,
