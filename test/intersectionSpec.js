@@ -27,7 +27,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return four points of intersection if input rectangles crisscross each other', function(){
     let rec1 = {
@@ -59,7 +59,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return two points of intersection if one of the input rectangles intersect at one side of the other input rectangle', function(){
     let rec1 = {
@@ -91,7 +91,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return two points of intersection if input rectangles are adjoined', function(){
     let rec1 = {
@@ -123,7 +123,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return one point of intersection if input rectangles meet at one corner', function(){
     let rec1 = {
@@ -144,7 +144,7 @@ describe('rectanglesIntersectAt', function(){
     expect(intersections.length).to.equal(1);
     expect(intersections[0][0]).to.equal(100);
     expect(intersections[0][1]).to.equal(50);
-  })
+  });
 
   it ('should not return any points of coordinates if input rectangles do not intersect', function(){
     let rec1 = {
@@ -163,7 +163,7 @@ describe('rectanglesIntersectAt', function(){
     let intersections = rectanglesIntersectAt(rec1, rec2);
 
     expect(intersections.length).to.equal(0);
-  })
+  });
 
   it ('should not return points of intersection if an input rectangle is contained within the other input rectangle', function(){
     let rec1 = {
@@ -181,7 +181,7 @@ describe('rectanglesIntersectAt', function(){
 
     let intersections = rectanglesIntersectAt(rec2, rec1);
     expect(intersections.length).to.equal(0)
-  })
+  });
 
   it ('should not return any points of intersection if two input rectangles are adjacent', function(){
     let rec1 = {
@@ -213,7 +213,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return three points of intersection if input rectangles are aligned in one corner', function(){
     let rec1 = {
@@ -245,7 +245,7 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
   it ('should return four points of intersection if one input rectangle contain the other input rectangle and one pair parelle sides aligned with each other ', function(){
     let rec1 = {
@@ -277,6 +277,6 @@ describe('rectanglesIntersectAt', function(){
     }
 
     expect(correctResult).to.be.true;
-  })
+  });
 
-})
+});
