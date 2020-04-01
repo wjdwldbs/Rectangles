@@ -6,17 +6,44 @@ var rectanglesIntersectAt = function (rectangle1, rectangle2) {
   let x2 = Math.min(rectangle1.topLeftX, rectangle2.topLeftX)
   let y2 = Math.min(rectangle1.topLeftY, rectangle2.topLeftY)
 
-  if (x1 > x2 || y1 > y2){
-    return 'No Intersecting Points'
+  if ((x1 > x2 || y1 > y2)){
+    return [];
   }
 
-  let intersectingCoordinates = [
-    {x: x1, y: y1},
-    {x: x2, y: y2},
-    {x: x1, y: y2},
-    {x: x2, y: y1}
-  ]
+  let coordinates = {
+    x1y1: [x1, y1],
+    x2y2: [x2, y2],
+    x1y2: [x1, y2],
+    x2y1: [x2, y1]
+  }
 
+  if (coordinates.x1y1[0] === coordinates.x2y2[0] && coordinates.x1y1[1] === coordinates.x2y2[1] ||
+      coordinates.x1y1[0] === coordinates.x1y2[0] && coordinates.x1y1[1] === coordinates.x1y2[1] ||
+      coordinates.x1y1[0] === coordinates.x2y1[0] && coordinates.x1y1[1] === coordinates.x2y1[1]) {
+        delete coordinates.x1y1;
+  }
+
+  if (coordinates.x2y2[0] === coordinates.x1y2[0] && coordinates.x2y2[1] === coordinates.x1y2[1] ||
+      coordinates.x2y2[0] === coordinates.x2y1[0] && coordinates.x2y2[1] === coordinates.x2y1[1]) {
+        delete coordinates.x2y2;
+  }
+
+  if (coordinates.x1y2[0] === coordinates.x2y1[0] && coordinates.x1y2[1] === coordinates.x2y1[1]) {
+      delete coordinates.x1y2;
+  }
+
+  let intersectingCoordinates = [];
+
+  for (let coordinate in coordinates){
+    let currentCoordinate = coordinates[coordinate];
+    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topLeftX) && (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topLeftY)) {
+      intersectingCoordinates.push(currentCoordinate);
+      
+    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topLeftX) && (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topLeftY)) {
+      intersectingCoordinates.push(currentCoordinate);
+    }
+  }
+  
   return intersectingCoordinates;
 }
 
