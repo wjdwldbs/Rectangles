@@ -17,7 +17,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 50
     }
 
-    expect(areRectanglesAdjacent(rec2, rec1)).to.be.true;
+    expect(areRectanglesAdjacent(rec1, rec2)).to.be.true;
   });
 
   it('should return true if input rectangles have sub-line adjacency', function(){
@@ -34,7 +34,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 40
     }
 
-    expect(areRectanglesAdjacent(rec1, rec2)).to.be.true;
+    expect(areRectanglesAdjacent(rec2, rec1)).to.be.true;
   });
 
   it('should return true if input rectangles have partial adjacency', function(){
@@ -51,7 +51,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 200
     }
 
-    expect(areRectanglesAdjacent(rec2, rec1)).to.be.true;
+    expect(areRectanglesAdjacent(rec1, rec2)).to.be.true;
   });
 
   it ('should return false if input rectangles are not adjacent', function(){
@@ -68,7 +68,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 160
     }
 
-    expect(areRectanglesAdjacent(rec2, rec1)).to.be.false;
+    expect(areRectanglesAdjacent(rec1, rec2)).to.be.false;
   });
 
   it ('should return false if input rectangles intersect', function(){
@@ -85,7 +85,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 70
     }
 
-    expect(areRectanglesAdjacent(rec1, rec2)).to.be.false;
+    expect(areRectanglesAdjacent(rec2, rec1)).to.be.false;
   });
 
   it ('should return false if input rectangles meet at one corner', function(){
@@ -102,7 +102,7 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 100
     }
 
-    expect(areRectanglesAdjacent(rec1, rec2)).to.be.false;
+    expect(areRectanglesAdjacent(rec2, rec1)).to.be.false;
   });
 
   it ('should return false if input rectangles share one side but are not adjacent', function(){
@@ -119,6 +119,6 @@ describe('areRectanglesAdjacent', function(){
       topRightY: 150
     }
     
-    expect(areRectanglesAdjacent(rec2, rec1)).to.be.false;
+    expect(areRectanglesAdjacent(rec1, rec2)).to.be.false;
   });
 });
