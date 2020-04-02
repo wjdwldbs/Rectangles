@@ -26,7 +26,8 @@ class Rectangle extends React.Component {
     this.state.canvas = this.refs.canvas;
     this.state.ctx = this.state.canvas.getContext('2d');
     this.state.canvas.width = 800,
-    this.state.canvas.height = 550
+    this.state.canvas.height = 550,
+    this.state.ctx.lineWidth = 12;
   }
 
   drawRectangle() {
@@ -81,10 +82,9 @@ class Rectangle extends React.Component {
     return(
       <div id="container">
         <canvas ref="canvas" style={{border:"black solid 3px"}} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}></canvas>
-        <div>
-        <Intersection rectangles={this.state.rectangles}/>
+        <div style={{float:'right', marginRight:'10%'}}>
+          <Intersection rectangles={this.state.rectangles}/>
         </div>
-        
       </div>
     )
   }
