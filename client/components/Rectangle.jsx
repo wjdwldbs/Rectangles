@@ -5,14 +5,14 @@ class Rectangle extends React.Component {
     super();
 
     this.state = {
-      rectangleCount: 0,
       drag: false,
       startX: null,     
       startY: null,     
       width: null,    
-      height: null
+      height: null,
     }
 
+    this.rectangles = [];
     this.canvas = null;
     this.ctx = null;
     this.drawRectangle = this.drawRectangle.bind(this);
@@ -29,6 +29,14 @@ class Rectangle extends React.Component {
   }
 
   drawRectangle() {
+    this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
+
+    for (let i = 0; i < this.rectangles.length; i++){
+      let currentRectangle = this.rectangles[i];
+      this.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width,currentRectangle.height);
+    }
+
+
     this.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width,this.state.height);
   }
 
@@ -38,13 +46,16 @@ class Rectangle extends React.Component {
       startY: (e.pageY - this.canvas.offsetTop),
       drag: true
     })
+    console.log(`rectangles: ${this.rectangles.length}`)
   }
 
   handleMouseUp() {
     this.setState({
-      mouseUp: true,
       drag: false
     })
+
+    this.rectangles.push(this.state)
+
   }
 
   handleMouseMove(e) {
@@ -52,9 +63,7 @@ class Rectangle extends React.Component {
       this.setState({
         width: (e.pageX - this.canvas.offsetLeft) - this.state.startX,
         height:(e.pageY - this.canvas.offsetTop) - this.state.startY
-      
       })
-      this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
       this.drawRectangle();
     }
   }

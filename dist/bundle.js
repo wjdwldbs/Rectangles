@@ -29228,7 +29228,6 @@ var Rectangle = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).call(this));
 
     _this.state = {
-      rectangleCount: 0,
       drag: false,
       startX: null,
       startY: null,
@@ -29236,6 +29235,7 @@ var Rectangle = function (_React$Component) {
       height: null
     };
 
+    _this.rectangles = [];
     _this.canvas = null;
     _this.ctx = null;
     _this.drawRectangle = _this.drawRectangle.bind(_this);
@@ -29255,6 +29255,13 @@ var Rectangle = function (_React$Component) {
   }, {
     key: 'drawRectangle',
     value: function drawRectangle() {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+      for (var i = 0; i < this.rectangles.length; i++) {
+        var currentRectangle = this.rectangles[i];
+        this.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width, currentRectangle.height);
+      }
+
       this.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width, this.state.height);
     }
   }, {
@@ -29265,14 +29272,16 @@ var Rectangle = function (_React$Component) {
         startY: e.pageY - this.canvas.offsetTop,
         drag: true
       });
+      console.log('rectangles: ' + this.rectangles.length);
     }
   }, {
     key: 'handleMouseUp',
     value: function handleMouseUp() {
       this.setState({
-        mouseUp: true,
         drag: false
       });
+
+      this.rectangles.push(this.state);
     }
   }, {
     key: 'handleMouseMove',
@@ -29281,9 +29290,7 @@ var Rectangle = function (_React$Component) {
         this.setState({
           width: e.pageX - this.canvas.offsetLeft - this.state.startX,
           height: e.pageY - this.canvas.offsetTop - this.state.startY
-
         });
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.drawRectangle();
       }
     }
