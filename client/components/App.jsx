@@ -9,8 +9,8 @@ class App extends React.Component {
   render(){
     return(
       <div>
-        <div>
-          draw rectangle
+        <div style={{margin:"10px", fontSize: "20px"}}>
+          Drag mouse to create rectangles
         </div>
         <Rectangle />
       </div>

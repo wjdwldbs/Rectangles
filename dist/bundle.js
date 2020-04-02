@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -261,6 +261,21 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(14);
+} else {
+  module.exports = __webpack_require__(13);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /*
 object-assign
 (c) Sindre Sorhus
@@ -354,21 +369,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(11);
-} else {
-  module.exports = __webpack_require__(10);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -385,7 +385,7 @@ if (process.env.NODE_ENV === 'production') {
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(7);
+  var ReactPropTypesSecret = __webpack_require__(10);
   var loggedTypeFailures = {};
   var has = Function.call.bind(Object.prototype.hasOwnProperty);
 
@@ -486,15 +486,74 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(18);
 } else {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(17);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Rectangle = __webpack_require__(8);
+
+var _Rectangle2 = _interopRequireDefault(_Rectangle);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var App = function (_React$Component) {
+  _inherits(App, _React$Component);
+
+  function App() {
+    _classCallCheck(this, App);
+
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+  }
+
+  _createClass(App, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'div',
+          { style: { margin: "10px", fontSize: "20px" } },
+          'Drag mouse to create rectangles'
+        ),
+        _react2.default.createElement(_Rectangle2.default, null)
+      );
+    }
+  }]);
+
+  return App;
+}(_react2.default.Component);
+
+exports.default = App;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -532,29 +591,325 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(9);
+  module.exports = __webpack_require__(12);
 } else {
-  module.exports = __webpack_require__(8);
+  module.exports = __webpack_require__(11);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _react = __webpack_require__(2);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(5);
+var _intersection = __webpack_require__(20);
+
+var _intersection2 = _interopRequireDefault(_intersection);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Intersection = function (_React$Component) {
+  _inherits(Intersection, _React$Component);
+
+  function Intersection(props) {
+    _classCallCheck(this, Intersection);
+
+    var _this = _possibleConstructorReturn(this, (Intersection.__proto__ || Object.getPrototypeOf(Intersection)).call(this, props));
+
+    _this.state = {
+      intersectingCoordinates: null,
+      clicked: false,
+      rectangle1: {},
+      rectangle2: {},
+      bottomLeftX1: null,
+      bottomLeftY1: null,
+      bottomLeftX2: null,
+      bottomLeftY2: null,
+      topRightX1: null,
+      topRightY1: null,
+      topRightX2: null,
+      topRightY2: null,
+      ready1: null
+    };
+
+    _this.getIntersections = _this.getIntersections.bind(_this);
+    _this.getRectangleCoordinates = _this.getRectangleCoordinates.bind(_this);
+    return _this;
+  }
+
+  _createClass(Intersection, [{
+    key: 'getRectangleCoordinates',
+    value: function getRectangleCoordinates() {
+      var _this2 = this;
+
+      for (var i = 0; i < this.props.rectangles.length; i++) {
+        var currentRectangle = this.props.rectangles[i];
+        console.log(currentRectangle);
+        // if (currentRectangle.startX > 0 && currentRectangle.startY > 0 && currentRectangle.width > 0 &&
+        // currentRectangle.height > 0){
+        if (i + 1 === 1) {
+          var _setState;
+
+          console.log('width: ' + currentRectangle.width);
+          var y = 1;
+          this.setState((_setState = {}, _defineProperty(_setState, 'ready' + y.toString, 'hello'), _defineProperty(_setState, 'bottomLeftX1', currentRectangle.startX <= currentRectangle.startX + currentRectangle.width ? currentRectangle.startX : currentRectangle.startX + currentRectangle.width), _defineProperty(_setState, 'bottomLeftY1', currentRectangle.startY <= currentRectangle.startY + currentRectangle.height ? currentRectangle.startY : currentRectangle.startY + currentRectangle.height), _defineProperty(_setState, 'topRightX1', currentRectangle.startX > currentRectangle.startX + currentRectangle.width ? currentRectangle.startX : currentRectangle.startX + currentRectangle.width), _defineProperty(_setState, 'topRightY1', currentRectangle.startY > currentRectangle.startY + currentRectangle.height ? currentRectangle.startY : currentRectangle.startY + currentRectangle.height), _setState), function () {
+            return console.log('ready', _this2.state.ready);
+          });
+        } else {
+          console.log('width2: ' + currentRectangle.width);
+          this.setState({
+            bottomLeftX2: currentRectangle.startX <= currentRectangle.startX + currentRectangle.width ? currentRectangle.startX : currentRectangle.startX + currentRectangle.width,
+            bottomLeftY2: currentRectangle.startY <= currentRectangle.startY + currentRectangle.height ? currentRectangle.startY : currentRectangle.startY + currentRectangle.height,
+            topRightX2: currentRectangle.startX > currentRectangle.startX + currentRectangle.width ? currentRectangle.startX : currentRectangle.startX + currentRectangle.width,
+            topRightY2: currentRectangle.startY > currentRectangle.startY + currentRectangle.height ? currentRectangle.startY : currentRectangle.startY + currentRectangle.height
+          }, function () {
+            return _this2.getIntersections();
+          });
+        }
+      }
+    }
+  }, {
+    key: 'getIntersections',
+    value: function getIntersections() {
+
+      var rectangle1 = {};
+      var rectangle2 = {};
+      rectangle1.bottomLeftX = this.state.bottomLeftX1, rectangle1.bottomLeftY = this.state.bottomLeftY1, rectangle1.topRightX = this.state.topRightX1, rectangle1.topRightY = this.state.topRightY1;
+
+      console.log('rec1: ' + rectangle1.bottomLeftX);
+      console.log('rec1: ' + rectangle1.bottomLeftY);
+      console.log('rec1: ' + rectangle1.topRightX);
+      console.log('rec1: ' + rectangle1.topRightY);
+
+      rectangle2.bottomLeftX = this.state.bottomLeftX2, rectangle2.bottomLeftY = this.state.bottomLeftY2, rectangle2.topRightX = this.state.topRightX2, rectangle2.topRightY = this.state.topRightY2;
+
+      console.log('rec2: ' + rectangle2.bottomLeftX);
+      console.log('rec2: ' + rectangle2.bottomLeftY);
+      console.log('rec2: ' + rectangle2.topRightX);
+      console.log('rec2: ' + rectangle2.topRightY);
+
+      var coordinates = (0, _intersection2.default)(rectangle1, rectangle2);
+      console.log('coordinates: ' + coordinates.length);
+      this.setState({
+        intersectingCoordinates: coordinates
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'button',
+          { onClick: this.getRectangleCoordinates },
+          'Intersection'
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          this.state.intersectingCoordinates !== null && _react2.default.createElement(
+            'div',
+            null,
+            this.state.intersectingCoordinates.map(function (intersectingCoordinate, i) {
+              return _react2.default.createElement(
+                'div',
+                { key: i },
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  intersectingCoordinate[0],
+                  ', '
+                ),
+                _react2.default.createElement(
+                  'span',
+                  null,
+                  intersectingCoordinate[1]
+                )
+              );
+            })
+          )
+        )
+      );
+    }
+  }]);
+
+  return Intersection;
+}(_react2.default.Component);
+
+exports.default = Intersection;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Intersection = __webpack_require__(7);
+
+var _Intersection2 = _interopRequireDefault(_Intersection);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Rectangle = function (_React$Component) {
+  _inherits(Rectangle, _React$Component);
+
+  function Rectangle() {
+    _classCallCheck(this, Rectangle);
+
+    var _this = _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).call(this));
+
+    _this.state = {
+      drag: false,
+      rectangles: [],
+      canvas: null,
+      ctx: null,
+      startX: null,
+      startY: null,
+      width: null,
+      height: null
+    };
+
+    _this.drawRectangle = _this.drawRectangle.bind(_this);
+    _this.handleMouseDown = _this.handleMouseDown.bind(_this);
+    _this.handleMouseUp = _this.handleMouseUp.bind(_this);
+    _this.handleMouseMove = _this.handleMouseMove.bind(_this);
+    return _this;
+  }
+
+  _createClass(Rectangle, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.state.canvas = this.refs.canvas;
+      this.state.ctx = this.state.canvas.getContext('2d');
+      this.state.canvas.width = 800, this.state.canvas.height = 550;
+    }
+  }, {
+    key: 'drawRectangle',
+    value: function drawRectangle() {
+      this.state.ctx.clearRect(0, 0, this.state.canvas.width, this.state.canvas.height);
+
+      for (var i = 0; i < this.state.rectangles.length; i++) {
+        var currentRectangle = this.state.rectangles[i];
+        this.state.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width, currentRectangle.height);
+      }
+
+      this.state.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width, this.state.height);
+    }
+  }, {
+    key: 'handleMouseDown',
+    value: function handleMouseDown(e) {
+      this.setState({
+        startX: e.pageX - this.state.canvas.offsetLeft,
+        startY: e.pageY - this.state.canvas.offsetTop,
+        drag: true
+
+      });
+    }
+  }, {
+    key: 'handleMouseUp',
+    value: function handleMouseUp() {
+      this.setState({
+        drag: false
+      });
+
+      var coordinates = {
+        startX: this.state.startX,
+        startY: this.state.startY,
+        width: this.state.width,
+        height: this.state.height
+      };
+
+      this.state.rectangles.push(coordinates);
+      //console.log(this.state.rectangles)
+    }
+  }, {
+    key: 'handleMouseMove',
+    value: function handleMouseMove(e) {
+      if (this.state.drag) {
+        this.setState({
+          width: e.pageX - this.state.canvas.offsetLeft - this.state.startX,
+          height: e.pageY - this.state.canvas.offsetTop - this.state.startY
+
+        });
+        this.drawRectangle();
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'container' },
+        _react2.default.createElement('canvas', { ref: 'canvas', style: { border: "black solid 3px" }, onMouseDown: this.handleMouseDown, onMouseUp: this.handleMouseUp, onMouseMove: this.handleMouseMove }),
+        _react2.default.createElement(
+          'div',
+          null,
+          _react2.default.createElement(_Intersection2.default, { rectangles: this.state.rectangles })
+        )
+      );
+    }
+  }]);
+
+  return Rectangle;
+}(_react2.default.Component);
+
+exports.default = Rectangle;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(6);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(17);
+var _App = __webpack_require__(5);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -563,7 +918,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_App2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -582,7 +937,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -603,11 +958,11 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var React = __webpack_require__(2);
-var _assign = __webpack_require__(1);
+var React = __webpack_require__(1);
+var _assign = __webpack_require__(2);
 var Scheduler = __webpack_require__(4);
 var checkPropTypes = __webpack_require__(3);
-var tracing = __webpack_require__(16);
+var tracing = __webpack_require__(19);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED; // Prevent newer renderers from RTE when used with older react package versions.
 // Current owner and dispatcher used to share the same ref,
@@ -25602,7 +25957,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25618,7 +25973,7 @@ exports.version = ReactVersion;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(2),n=__webpack_require__(1),r=__webpack_require__(4);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(4);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -25901,7 +26256,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!gk(c))throw Er
 
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25922,7 +26277,7 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(1);
+var _assign = __webpack_require__(2);
 var checkPropTypes = __webpack_require__(3);
 
 var ReactVersion = '16.13.1';
@@ -27821,7 +28176,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27834,7 +28189,7 @@ exports.version = ReactVersion;
  * LICENSE file in the root directory of this source tree.
  */
 
-var l=__webpack_require__(1),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
+var l=__webpack_require__(2),n="function"===typeof Symbol&&Symbol.for,p=n?Symbol.for("react.element"):60103,q=n?Symbol.for("react.portal"):60106,r=n?Symbol.for("react.fragment"):60107,t=n?Symbol.for("react.strict_mode"):60108,u=n?Symbol.for("react.profiler"):60114,v=n?Symbol.for("react.provider"):60109,w=n?Symbol.for("react.context"):60110,x=n?Symbol.for("react.forward_ref"):60112,y=n?Symbol.for("react.suspense"):60113,z=n?Symbol.for("react.memo"):60115,A=n?Symbol.for("react.lazy"):
 60116,B="function"===typeof Symbol&&Symbol.iterator;function C(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}
 var D={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},E={};function F(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}F.prototype.isReactComponent={};F.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error(C(85));this.updater.enqueueSetState(this,a,b,"setState")};F.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function G(){}G.prototype=F.prototype;function H(a,b,c){this.props=a;this.context=b;this.refs=E;this.updater=c||D}var I=H.prototype=new G;I.constructor=H;l(I,F.prototype);I.isPureReactComponent=!0;var J={current:null},K=Object.prototype.hasOwnProperty,L={key:!0,ref:!0,__self:!0,__source:!0};
@@ -27853,7 +28208,7 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28210,7 +28565,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28227,7 +28582,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29093,7 +29448,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29121,194 +29476,82 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(16);
 } else {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(15);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 20 */
+/***/ (function(module, exports) {
 
-"use strict";
+const rectanglesIntersectAt = function (rectangle1, rectangle2) {
 
+  let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX);
+  let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY);
+ 
+  let x2 = Math.min(rectangle1.topRightX, rectangle2.topRightX);
+  let y2 = Math.min(rectangle1.topRightY, rectangle2.topRightY);
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Rectangle = __webpack_require__(18);
-
-var _Rectangle2 = _interopRequireDefault(_Rectangle);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var App = function (_React$Component) {
-  _inherits(App, _React$Component);
-
-  function App() {
-    _classCallCheck(this, App);
-
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
+  if ((x1 > x2 || y1 > y2)){
+    return [];
   }
 
-  _createClass(App, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        null,
-        _react2.default.createElement(
-          'div',
-          null,
-          'draw rectangle'
-        ),
-        _react2.default.createElement(_Rectangle2.default, null)
-      );
-    }
-  }]);
-
-  return App;
-}(_react2.default.Component);
-
-exports.default = App;
-
-/***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Rectangle = function (_React$Component) {
-  _inherits(Rectangle, _React$Component);
-
-  function Rectangle() {
-    _classCallCheck(this, Rectangle);
-
-    var _this = _possibleConstructorReturn(this, (Rectangle.__proto__ || Object.getPrototypeOf(Rectangle)).call(this));
-
-    _this.state = {
-      drag: false,
-      startX: null,
-      startY: null,
-      width: null,
-      height: null
-    };
-
-    _this.rectangles = [];
-    _this.canvas = null;
-    _this.ctx = null;
-    _this.drawRectangle = _this.drawRectangle.bind(_this);
-    _this.handleMouseDown = _this.handleMouseDown.bind(_this);
-    _this.handleMouseUp = _this.handleMouseUp.bind(_this);
-    _this.handleMouseMove = _this.handleMouseMove.bind(_this);
-    return _this;
+  let coordinates = {
+    x1y1: [x1, y1],
+    x2y2: [x2, y2],
+    x1y2: [x1, y2],
+    x2y1: [x2, y1]
   }
 
-  _createClass(Rectangle, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.canvas = this.refs.canvas;
-      this.ctx = this.canvas.getContext('2d');
-      this.canvas.width = 800, this.canvas.height = 800;
-    }
-  }, {
-    key: 'drawRectangle',
-    value: function drawRectangle() {
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  if (coordinates.x1y1[0] === coordinates.x2y2[0] && coordinates.x1y1[1] === coordinates.x2y2[1] ||
+      coordinates.x1y1[0] === coordinates.x1y2[0] && coordinates.x1y1[1] === coordinates.x1y2[1] ||
+      coordinates.x1y1[0] === coordinates.x2y1[0] && coordinates.x1y1[1] === coordinates.x2y1[1]) {
 
-      for (var i = 0; i < this.rectangles.length; i++) {
-        var currentRectangle = this.rectangles[i];
-        this.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width, currentRectangle.height);
-      }
+      delete coordinates.x1y1;
+  }
 
-      this.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width, this.state.height);
-    }
-  }, {
-    key: 'handleMouseDown',
-    value: function handleMouseDown(e) {
-      this.setState({
-        startX: e.pageX - this.canvas.offsetLeft,
-        startY: e.pageY - this.canvas.offsetTop,
-        drag: true
-      });
-      console.log('rectangles: ' + this.rectangles.length);
-    }
-  }, {
-    key: 'handleMouseUp',
-    value: function handleMouseUp() {
-      this.setState({
-        drag: false
-      });
+  if (coordinates.x2y2[0] === coordinates.x1y2[0] && coordinates.x2y2[1] === coordinates.x1y2[1] ||
+      coordinates.x2y2[0] === coordinates.x2y1[0] && coordinates.x2y2[1] === coordinates.x2y1[1]) {
+      
+      delete coordinates.x2y2;
+  }
 
-      this.rectangles.push(this.state);
-    }
-  }, {
-    key: 'handleMouseMove',
-    value: function handleMouseMove(e) {
-      if (this.state.drag) {
-        this.setState({
-          width: e.pageX - this.canvas.offsetLeft - this.state.startX,
-          height: e.pageY - this.canvas.offsetTop - this.state.startY
-        });
-        this.drawRectangle();
-      }
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { id: 'container' },
-        _react2.default.createElement('canvas', { ref: 'canvas', style: { border: "black solid 3px" }, onMouseDown: this.handleMouseDown, onMouseUp: this.handleMouseUp, onMouseMove: this.handleMouseMove })
-      );
-    }
-  }]);
+  if (coordinates.x1y2[0] === coordinates.x2y1[0] && coordinates.x1y2[1] === coordinates.x2y1[1]) {
 
-  return Rectangle;
-}(_react2.default.Component);
+      delete coordinates.x1y2;
+  }
 
-exports.default = Rectangle;
+  let intersectingCoordinates = [];
+
+  for (let coordinate in coordinates){
+    let currentCoordinate = coordinates[coordinate];
+
+    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topRightX) && 
+       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topRightY)) {
+
+      intersectingCoordinates.push(currentCoordinate);
+      
+    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topRightX) && 
+      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topRightY)) {
+
+      intersectingCoordinates.push(currentCoordinate);
+    }
+  }
+  
+  return intersectingCoordinates;
+};
+
+module.exports = rectanglesIntersectAt;
 
 /***/ })
 /******/ ]);

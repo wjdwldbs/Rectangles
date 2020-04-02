@@ -1,4 +1,5 @@
 import React from 'react';
+import Intersection from './Intersection.jsx';
 
 class Rectangle extends React.Component {
   constructor(){
@@ -6,15 +7,15 @@ class Rectangle extends React.Component {
 
     this.state = {
       drag: false,
+      rectangles: [],
+      canvas: null,
+      ctx: null,
       startX: null,     
       startY: null,     
       width: null,    
       height: null,
     }
 
-    this.rectangles = [];
-    this.canvas = null;
-    this.ctx = null;
     this.drawRectangle = this.drawRectangle.bind(this);
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
@@ -22,31 +23,30 @@ class Rectangle extends React.Component {
   }
 
   componentDidMount() {
-    this.canvas = this.refs.canvas;
-    this.ctx = this.canvas.getContext('2d');
-    this.canvas.width = 800,
-    this.canvas.height = 800
+    this.state.canvas = this.refs.canvas;
+    this.state.ctx = this.state.canvas.getContext('2d');
+    this.state.canvas.width = 800,
+    this.state.canvas.height = 550
   }
 
   drawRectangle() {
-    this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
+    this.state.ctx.clearRect(0, 0, this.state.canvas.width, this.state.canvas.height);
 
-    for (let i = 0; i < this.rectangles.length; i++){
-      let currentRectangle = this.rectangles[i];
-      this.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width,currentRectangle.height);
+    for (let i = 0; i < this.state.rectangles.length; i++){
+      let currentRectangle = this.state.rectangles[i];
+      this.state.ctx.strokeRect(currentRectangle.startX, currentRectangle.startY, currentRectangle.width, currentRectangle.height);
     }
 
-
-    this.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width,this.state.height);
+    this.state.ctx.strokeRect(this.state.startX, this.state.startY, this.state.width, this.state.height);
   }
 
   handleMouseDown(e) {
     this.setState({
-      startX: (e.pageX - this.canvas.offsetLeft),
-      startY: (e.pageY - this.canvas.offsetTop),
+      startX: (e.pageX - this.state.canvas.offsetLeft),
+      startY: (e.pageY - this.state.canvas.offsetTop),
       drag: true
+
     })
-    console.log(`rectangles: ${this.rectangles.length}`)
   }
 
   handleMouseUp() {
@@ -54,15 +54,24 @@ class Rectangle extends React.Component {
       drag: false
     })
 
-    this.rectangles.push(this.state)
+    let coordinates = {
+      startX: this.state.startX,
+      startY: this.state.startY,
+      width: this.state.width,
+      height: this.state.height
+    }
+
+    this.state.rectangles.push(coordinates);
+    //console.log(this.state.rectangles)
 
   }
 
   handleMouseMove(e) {
     if (this.state.drag){
       this.setState({
-        width: (e.pageX - this.canvas.offsetLeft) - this.state.startX,
-        height:(e.pageY - this.canvas.offsetTop) - this.state.startY
+        width: (e.pageX - this.state.canvas.offsetLeft) - this.state.startX,
+        height:(e.pageY - this.state.canvas.offsetTop) - this.state.startY
+
       })
       this.drawRectangle();
     }
@@ -72,6 +81,10 @@ class Rectangle extends React.Component {
     return(
       <div id="container">
         <canvas ref="canvas" style={{border:"black solid 3px"}} onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}></canvas>
+        <div>
+        <Intersection rectangles={this.state.rectangles}/>
+        </div>
+        
       </div>
     )
   }
