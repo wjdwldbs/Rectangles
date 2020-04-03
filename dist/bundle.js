@@ -622,7 +622,7 @@ var Canvas = function (_React$Component) {
         _this2.setState({
           windowWidth: window.innerWidth
         });
-      }, console.log(this.state.windowWidth));
+      });
 
       this.state.canvas = this.refs.canvas;
       this.state.ctx = this.state.canvas.getContext('2d');
@@ -639,7 +639,7 @@ var Canvas = function (_React$Component) {
         _this3.setState({
           windowWidth: window.innerWidth
         });
-      }, console.log(this.state.windowWidth));
+      });
     }
   }, {
     key: 'drawRectangle',

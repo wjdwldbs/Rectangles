@@ -29,7 +29,7 @@ class Canvas extends React.Component {
       this.setState({
         windowWidth: window.innerWidth
       })
-    }, console.log(this.state.windowWidth));
+    });
 
     this.state.canvas = this.refs.canvas;
     this.state.ctx = this.state.canvas.getContext('2d');
@@ -43,7 +43,7 @@ class Canvas extends React.Component {
       this.setState({
         windowWidth: window.innerWidth
       })
-    }, console.log(this.state.windowWidth));
+    });
 }
 
   drawRectangle() {
