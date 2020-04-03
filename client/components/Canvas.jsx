@@ -10,11 +10,11 @@ class Canvas extends React.Component {
       rectangles: [],
       canvas: null,
       ctx: null,
-      startX: null,     
-      startY: null,     
-      width: null,    
-      height: null,
-      color: null
+      startX: 0,     
+      startY: 0,     
+      width: 0,    
+      height: 0,
+      windowWidth: window.innerWidth
     }
 
     this.drawRectangle = this.drawRectangle.bind(this);
@@ -25,13 +25,26 @@ class Canvas extends React.Component {
   }
 
   componentDidMount() {
+    window.addEventListener('resize', () => {
+      this.setState({
+        windowWidth: window.innerWidth
+      })
+    }, console.log(this.state.windowWidth));
+
     this.state.canvas = this.refs.canvas;
     this.state.ctx = this.state.canvas.getContext('2d');
     this.state.canvas.width = 700;
     this.state.canvas.height = 500;
     this.state.ctx.lineWidth = 8;
-
   }
+
+  componentWillUnmount() {
+    window.addEventListener('resize', () => {
+      this.setState({
+        windowWidth: window.innerWidth
+      })
+    }, console.log(this.state.windowWidth));
+}
 
   drawRectangle() {
 
@@ -99,7 +112,7 @@ class Canvas extends React.Component {
 
   render(){
     return(
-      <div id="container" style={{}}>
+      <div id="container" style={{width: "1000px", margin:"0 auto"}}>
         <div style={{}}>
           <p>Drag mouse to create TWO rectangles then click RESULTS button on the right for detection</p>
           <button style={{fontSize:"15px"}} onClick={this.clearCanvas}>
@@ -109,13 +122,13 @@ class Canvas extends React.Component {
 
         <div >
           <div style={{display : 'inline-block', verticalAlign:"top"}}>
-          <canvas ref="canvas" style={{border:"black solid 3px", margin:"10px", fontSize: "20px"}} 
-            onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}>
-          </canvas>
+            <canvas ref="canvas" style={{border:"black solid 3px", margin:"10px", fontSize: "20px"}} 
+              onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove}>
+            </canvas>
           </div>
 
-          <div style={{display : 'inline-block', verticalAlign:"top"}}>
-          <Rectangles rectangles={this.state.rectangles}/>
+          <div style={{display : this.state.windowWidth < 950 ? 'block' : 'inline-block', verticalAlign:"top"}}>
+            <Rectangles id="sidebar" rectangles={this.state.rectangles}/>
           </div>
         </div>
       </div>

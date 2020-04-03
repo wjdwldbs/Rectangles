@@ -598,11 +598,11 @@ var Canvas = function (_React$Component) {
       rectangles: [],
       canvas: null,
       ctx: null,
-      startX: null,
-      startY: null,
-      width: null,
-      height: null,
-      color: null
+      startX: 0,
+      startY: 0,
+      width: 0,
+      height: 0,
+      windowWidth: window.innerWidth
     };
 
     _this.drawRectangle = _this.drawRectangle.bind(_this);
@@ -616,11 +616,30 @@ var Canvas = function (_React$Component) {
   _createClass(Canvas, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
+      var _this2 = this;
+
+      window.addEventListener('resize', function () {
+        _this2.setState({
+          windowWidth: window.innerWidth
+        });
+      }, console.log(this.state.windowWidth));
+
       this.state.canvas = this.refs.canvas;
       this.state.ctx = this.state.canvas.getContext('2d');
       this.state.canvas.width = 700;
       this.state.canvas.height = 500;
       this.state.ctx.lineWidth = 8;
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      var _this3 = this;
+
+      window.addEventListener('resize', function () {
+        _this3.setState({
+          windowWidth: window.innerWidth
+        });
+      }, console.log(this.state.windowWidth));
     }
   }, {
     key: 'drawRectangle',
@@ -695,7 +714,7 @@ var Canvas = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { id: 'container', style: {} },
+        { id: 'container', style: { width: "1000px", margin: "0 auto" } },
         _react2.default.createElement(
           'div',
           { style: {} },
@@ -721,8 +740,8 @@ var Canvas = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { style: { display: 'inline-block', verticalAlign: "top" } },
-            _react2.default.createElement(_Rectangles2.default, { rectangles: this.state.rectangles })
+            { style: { display: this.state.windowWidth < 950 ? 'block' : 'inline-block', verticalAlign: "top" } },
+            _react2.default.createElement(_Rectangles2.default, { id: 'sidebar', rectangles: this.state.rectangles })
           )
         )
       );
@@ -885,7 +904,7 @@ var Rectangles = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Rectangles.__proto__ || Object.getPrototypeOf(Rectangles)).call(this, props));
 
     _this.state = {
-      intersectingCoordinates: null,
+      intersectingCoordinates: [],
       bottomLeftX1: null,
       bottomLeftY1: null,
       bottomLeftX2: null,
@@ -971,7 +990,7 @@ var Rectangles = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { style: {} },
-            ' Rectangle1: '
+            ' Rectangle1 Coordinates: '
           ),
           _react2.default.createElement(
             'p',
@@ -1004,7 +1023,7 @@ var Rectangles = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            ' Rectangle2: '
+            ' Rectangle2 Coordinates: '
           ),
           _react2.default.createElement(
             'p',

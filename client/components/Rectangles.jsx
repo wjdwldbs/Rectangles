@@ -9,7 +9,7 @@ class Rectangles extends React.Component {
     super(props);
 
     this.state = {
-      intersectingCoordinates: null,
+      intersectingCoordinates: [],
       bottomLeftX1: null,
       bottomLeftY1: null,
       bottomLeftX2: null,
@@ -87,7 +87,7 @@ class Rectangles extends React.Component {
         </button>
 
         <div>
-          <div style={{}}> Rectangle1: </div>
+          <div style={{}}> Rectangle1 Coordinates: </div>
               <p>top-leftX: {this.state.bottomLeftX1}</p>
               <p>top-leftY: {this.state.bottomLeftY1}</p>
               <p>bottom-rightX: {this.state.topRightX1}</p>
@@ -95,7 +95,7 @@ class Rectangles extends React.Component {
         </div>
 
         <div>
-          <div> Rectangle2: </div>
+          <div> Rectangle2 Coordinates: </div>
               <p>top-leftX: {this.state.bottomLeftX2}</p>
               <p>top-leftY: {this.state.bottomLeftY2}</p>
               <p>bottom-rightX: {this.state.topRightX2}</p>

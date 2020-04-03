@@ -1,5 +1,5 @@
-# nuvalence_rectangle
-nuvalent_rectangle application analyzes client-input rectangles and detects intersection, containment, and adjacency. 
+# Rectangles
+Rectangles application analyzes client-input rectangles and detects intersection, containment, and adjacency. 
 
 Things to note: 
 - The upper-left corner of the computer screen is the origin coordinate (0, 0) and y-axis goes in the downwards direction. 
