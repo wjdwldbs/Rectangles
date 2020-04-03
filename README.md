@@ -8,7 +8,7 @@ Things to note:
 
 ## Table of Contents
 
-1. [Definiton](#defintion)
+1. [Definition](#defintion)
 2. [Requirements](#requirements)
 3. [Installation & Setup](#setup)
 4. [DevDependencies](#dev)
