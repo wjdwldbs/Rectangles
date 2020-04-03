@@ -65,10 +65,6 @@ class Canvas extends React.Component {
   }
 
   handleMouseUp() {
-    // this.setState({
-    //   drag: false
-    // })
-
     let coordinates = {
       startX: this.state.startX,
       startY: this.state.startY,
@@ -106,7 +102,9 @@ class Canvas extends React.Component {
       <div id="container" style={{}}>
         <div style={{}}>
           <p>Drag mouse to create TWO rectangles then click RESULTS button on the right for detection</p>
-          <button style={{fontSize:"15px"}} onClick={this.clearCanvas}>Clear Canvas</button>
+          <button style={{fontSize:"15px"}} onClick={this.clearCanvas}>
+            Clear Canvas
+          </button>
         </div>
 
         <div >

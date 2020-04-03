@@ -657,10 +657,6 @@ var Canvas = function (_React$Component) {
   }, {
     key: 'handleMouseUp',
     value: function handleMouseUp() {
-      // this.setState({
-      //   drag: false
-      // })
-
       var coordinates = {
         startX: this.state.startX,
         startY: this.state.startY,
@@ -1109,7 +1105,7 @@ var Results = function Results(props) {
       _react2.default.createElement(
         "div",
         { style: { marginBottom: "10px" } },
-        "CONTAINED: ",
+        "CONTAINED:",
         _react2.default.createElement(
           "span",
           null,
@@ -1119,7 +1115,7 @@ var Results = function Results(props) {
       _react2.default.createElement(
         "div",
         null,
-        "ADJACENT: ",
+        "ADJACENT:",
         _react2.default.createElement(
           "span",
           null,
