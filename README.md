@@ -4,7 +4,7 @@ nuvalent_rectangle application analyzes client-input rectangles and detects inte
 Things to note: 
 - The upper-left corner of the computer screen is the origin coordinate (0, 0) and y-axis goes in the downwards direction. 
 
-- The x-y coordinates of two rectangles must be perfectly aligned in order for a detection (ie. intersecting point) to occur on the application interface . 
+- The x-y coordinates of two rectangles must be perfectly aligned in order for a proper detection to occur on the application interface. 
 
 ## Table of Contents
 

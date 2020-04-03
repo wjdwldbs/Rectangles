@@ -620,7 +620,7 @@ var Canvas = function (_React$Component) {
       this.state.ctx = this.state.canvas.getContext('2d');
       this.state.canvas.width = 700;
       this.state.canvas.height = 500;
-      this.state.ctx.lineWidth = 3;
+      this.state.ctx.lineWidth = 8;
     }
   }, {
     key: 'drawRectangle',
@@ -657,9 +657,9 @@ var Canvas = function (_React$Component) {
   }, {
     key: 'handleMouseUp',
     value: function handleMouseUp() {
-      this.setState({
-        drag: false
-      });
+      // this.setState({
+      //   drag: false
+      // })
 
       var coordinates = {
         startX: this.state.startX,
@@ -670,6 +670,7 @@ var Canvas = function (_React$Component) {
 
       var rectangles = this.state.rectangles.concat(coordinates);
       this.setState({
+        drag: false,
         rectangles: rectangles
       });
     }

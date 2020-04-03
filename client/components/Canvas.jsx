@@ -29,7 +29,7 @@ class Canvas extends React.Component {
     this.state.ctx = this.state.canvas.getContext('2d');
     this.state.canvas.width = 700;
     this.state.canvas.height = 500;
-    this.state.ctx.lineWidth = 3;
+    this.state.ctx.lineWidth = 8;
 
   }
 
@@ -65,9 +65,9 @@ class Canvas extends React.Component {
   }
 
   handleMouseUp() {
-    this.setState({
-      drag: false
-    })
+    // this.setState({
+    //   drag: false
+    // })
 
     let coordinates = {
       startX: this.state.startX,
@@ -78,6 +78,7 @@ class Canvas extends React.Component {
 
     let rectangles = this.state.rectangles.concat(coordinates);
     this.setState({
+      drag: false,
       rectangles: rectangles
     })
   }
