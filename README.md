@@ -1,6 +1,8 @@
 # nuvalence_rectangle
 nuvalent_rectangle application analyzes client-input rectangles and detects intersection, containment, and adjacency. 
 
+**important: The upper-left corner of the computer screen is the origin coordinate (0, 0) and y-axis goes in the downwards direction.
+
 ## Table of Contents
 
 1. [Definiton](#defintion)
@@ -10,12 +12,13 @@ nuvalent_rectangle application analyzes client-input rectangles and detects inte
 
 ## Definition <a name="definiton"></a>
 
-| Feature | Description |
-| --- | --- |
-| Intersection | A point where a line from one rectangle meets or crosses a line from another rectangle |
-| Containment | A rectangle wholly contains another rectangle and do not have any intersecting points |
-| Adjacency | A rectangle shares its right or left side with another rectangle and one does not contain nor cross the other |
+| Feature | Description | Results
+| --- | --- | --- |
+| Intersection | A point where a line from one rectangle meets or crosses a line from another rectangle | x-y coordinates of intersecting point(s) |
+| Containment | A rectangle wholly contains another rectangle and do not have any intersecting points | Yes or No |
+| Adjacency | A rectangle shares its right or left side with another rectangle and one does not contain nor cross the other | Yes or No |
 
+Defintion Examples
 ![image info](./rectangles_examples.png)
 
 ## Requirements <a name="requirements"></a>
