@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "test": "./node_modules/.bin/mocha",
-    "start": "open index.html",
+    "open": "open dist/index.html",
     "build": "webpack -w"
   },
   "repository": {

@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -264,9 +264,9 @@ process.umask = function() { return 0; };
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(18);
-} else {
   module.exports = __webpack_require__(17);
+} else {
+  module.exports = __webpack_require__(16);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -370,6 +370,69 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports) {
+
+const rectanglesIntersectAt = function (rectangle1, rectangle2) {
+
+  let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX);
+  let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY);
+ 
+  let x2 = Math.min(rectangle1.topRightX, rectangle2.topRightX);
+  let y2 = Math.min(rectangle1.topRightY, rectangle2.topRightY);
+
+  if ((x1 > x2 || y1 > y2)){
+    return [];
+  }
+
+  let coordinates = {
+    x1y1: [x1, y1],
+    x2y2: [x2, y2],
+    x1y2: [x1, y2],
+    x2y1: [x2, y1]
+  }
+
+  if (coordinates.x1y1[0] === coordinates.x2y2[0] && coordinates.x1y1[1] === coordinates.x2y2[1] ||
+      coordinates.x1y1[0] === coordinates.x1y2[0] && coordinates.x1y1[1] === coordinates.x1y2[1] ||
+      coordinates.x1y1[0] === coordinates.x2y1[0] && coordinates.x1y1[1] === coordinates.x2y1[1]) {
+
+      delete coordinates.x1y1;
+  }
+
+  if (coordinates.x2y2[0] === coordinates.x1y2[0] && coordinates.x2y2[1] === coordinates.x1y2[1] ||
+      coordinates.x2y2[0] === coordinates.x2y1[0] && coordinates.x2y2[1] === coordinates.x2y1[1]) {
+      
+      delete coordinates.x2y2;
+  }
+
+  if (coordinates.x1y2[0] === coordinates.x2y1[0] && coordinates.x1y2[1] === coordinates.x2y1[1]) {
+
+      delete coordinates.x1y2;
+  }
+
+  let intersectingCoordinates = [];
+
+  for (let coordinate in coordinates){
+    let currentCoordinate = coordinates[coordinate];
+
+    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topRightX) && 
+       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topRightY)) {
+
+      intersectingCoordinates.push(currentCoordinate);
+      
+    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topRightX) && 
+      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topRightY)) {
+
+      intersectingCoordinates.push(currentCoordinate);
+    }
+  }
+  
+  return intersectingCoordinates;
+};
+
+module.exports = rectanglesIntersectAt;
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -385,7 +448,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 var printWarning = function() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(14);
+  var ReactPropTypesSecret = __webpack_require__(13);
   var loggedTypeFailures = {};
   var has = Function.call.bind(Object.prototype.hasOwnProperty);
 
@@ -479,187 +542,22 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(22);
-} else {
   module.exports = __webpack_require__(21);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 5 */,
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-function checkDCE() {
-  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-  if (
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
-    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
-  ) {
-    return;
-  }
-  if (process.env.NODE_ENV !== 'production') {
-    // This branch is unreachable because this function is only called
-    // in production, but the condition is true only in development.
-    // Therefore if the branch is still here, dead code elimination wasn't
-    // properly applied.
-    // Don't change the message. React DevTools relies on it. Also make sure
-    // this message doesn't occur elsewhere in this function, or it will cause
-    // a false positive.
-    throw new Error('^_^');
-  }
-  try {
-    // Verify that the code above has been dead code eliminated (DCE'd).
-    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
-  } catch (err) {
-    // DevTools shouldn't crash React, no matter what.
-    // We should still report in case we break this code.
-    console.error(err);
-  }
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // DCE check should happen before ReactDOM bundle executes so that
-  // DevTools can report bad minification during injection.
-  checkDCE();
-  module.exports = __webpack_require__(16);
 } else {
-  module.exports = __webpack_require__(15);
+  module.exports = __webpack_require__(20);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-const rectanglesIntersectAt = __webpack_require__(9);
-
-var areRectanglesAdjacent = function (rectangle1, rectangle2) {
-  let intersections = rectanglesIntersectAt(rectangle1, rectangle2);
-
-  if (intersections.length === 2 && (intersections[0][0] === intersections[1][0])){
-    return true;
-  }
-
-  return false;
-};
-
-module.exports = areRectanglesAdjacent;
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-const isRectangleContained = function (rectangle1, rectangle2) {
-
-  let outerRectangle;
-  let innerRectangle;
-
-  if (rectangle1.bottomLeftX < rectangle2.bottomLeftX && rectangle1.bottomLeftY < rectangle2.bottomLeftY &&
-    rectangle1.topRightX > rectangle2.topRightX && rectangle1.topRightY > rectangle2.topRightY){
-
-    outerRectangle = rectangle1;
-    innerRectangle = rectangle2;
-
-  } else if (rectangle2.bottomLeftX < rectangle1.bottomLeftX && rectangle2.bottomLeftY < rectangle1.bottomLeftY &&
-    rectangle2.topRightX > rectangle1.topRightX && rectangle2.topRightY > rectangle1.topRightY) {
-
-    outerRectangle = rectangle2;
-    innerRectangle = rectangle1;
-    
-  } else {
-
-    return false;
-  }
-
-  if (innerRectangle.bottomLeftX > outerRectangle.bottomLeftX && innerRectangle.bottomLeftY > outerRectangle.bottomLeftY) {
-    if (innerRectangle.topRightX < outerRectangle.topRightX && innerRectangle.topRightY < outerRectangle.topRightY) {
-      return true;
-    } 
-  }
-
-};
-
-module.exports = isRectangleContained;
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-const rectanglesIntersectAt = function (rectangle1, rectangle2) {
-
-  let x1 = Math.max(rectangle1.bottomLeftX, rectangle2.bottomLeftX);
-  let y1 = Math.max(rectangle1.bottomLeftY, rectangle2.bottomLeftY);
- 
-  let x2 = Math.min(rectangle1.topRightX, rectangle2.topRightX);
-  let y2 = Math.min(rectangle1.topRightY, rectangle2.topRightY);
-
-  if ((x1 > x2 || y1 > y2)){
-    return [];
-  }
-
-  let coordinates = {
-    x1y1: [x1, y1],
-    x2y2: [x2, y2],
-    x1y2: [x1, y2],
-    x2y1: [x2, y1]
-  }
-
-  if (coordinates.x1y1[0] === coordinates.x2y2[0] && coordinates.x1y1[1] === coordinates.x2y2[1] ||
-      coordinates.x1y1[0] === coordinates.x1y2[0] && coordinates.x1y1[1] === coordinates.x1y2[1] ||
-      coordinates.x1y1[0] === coordinates.x2y1[0] && coordinates.x1y1[1] === coordinates.x2y1[1]) {
-
-      delete coordinates.x1y1;
-  }
-
-  if (coordinates.x2y2[0] === coordinates.x1y2[0] && coordinates.x2y2[1] === coordinates.x1y2[1] ||
-      coordinates.x2y2[0] === coordinates.x2y1[0] && coordinates.x2y2[1] === coordinates.x2y1[1]) {
-      
-      delete coordinates.x2y2;
-  }
-
-  if (coordinates.x1y2[0] === coordinates.x2y1[0] && coordinates.x1y2[1] === coordinates.x2y1[1]) {
-
-      delete coordinates.x1y2;
-  }
-
-  let intersectingCoordinates = [];
-
-  for (let coordinate in coordinates){
-    let currentCoordinate = coordinates[coordinate];
-
-    if ((currentCoordinate[0] === rectangle1.bottomLeftX || currentCoordinate[0] === rectangle1.topRightX) && 
-       (currentCoordinate[1] === rectangle2.bottomLeftY || currentCoordinate[1] === rectangle2.topRightY)) {
-
-      intersectingCoordinates.push(currentCoordinate);
-      
-    } else if ((currentCoordinate[0] === rectangle2.bottomLeftX || currentCoordinate[0] === rectangle2.topRightX) && 
-      (currentCoordinate[1] === rectangle1.bottomLeftY || currentCoordinate[1] === rectangle1.topRightY)) {
-
-      intersectingCoordinates.push(currentCoordinate);
-    }
-  }
-  
-  return intersectingCoordinates;
-};
-
-module.exports = rectanglesIntersectAt;
-
-/***/ }),
-/* 10 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -675,7 +573,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Rectangles = __webpack_require__(11);
+var _Rectangles = __webpack_require__(10);
 
 var _Rectangles2 = _interopRequireDefault(_Rectangles);
 
@@ -838,7 +736,108 @@ var Canvas = function (_React$Component) {
 exports.default = Canvas;
 
 /***/ }),
-/* 11 */
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
+function checkDCE() {
+  /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
+  if (
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ === 'undefined' ||
+    typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE !== 'function'
+  ) {
+    return;
+  }
+  if (process.env.NODE_ENV !== 'production') {
+    // This branch is unreachable because this function is only called
+    // in production, but the condition is true only in development.
+    // Therefore if the branch is still here, dead code elimination wasn't
+    // properly applied.
+    // Don't change the message. React DevTools relies on it. Also make sure
+    // this message doesn't occur elsewhere in this function, or it will cause
+    // a false positive.
+    throw new Error('^_^');
+  }
+  try {
+    // Verify that the code above has been dead code eliminated (DCE'd).
+    __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(checkDCE);
+  } catch (err) {
+    // DevTools shouldn't crash React, no matter what.
+    // We should still report in case we break this code.
+    console.error(err);
+  }
+}
+
+if (process.env.NODE_ENV === 'production') {
+  // DCE check should happen before ReactDOM bundle executes so that
+  // DevTools can report bad minification during injection.
+  checkDCE();
+  module.exports = __webpack_require__(15);
+} else {
+  module.exports = __webpack_require__(14);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+const rectanglesIntersectAt = __webpack_require__(3);
+
+var areRectanglesAdjacent = function (rectangle1, rectangle2) {
+  let intersections = rectanglesIntersectAt(rectangle1, rectangle2);
+
+  if (intersections.length === 2 && (intersections[0][0] === intersections[1][0])){
+    return true;
+  }
+
+  return false;
+};
+
+module.exports = areRectanglesAdjacent;
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+const isRectangleContained = function (rectangle1, rectangle2) {
+
+  let outerRectangle;
+  let innerRectangle;
+
+  if (rectangle1.bottomLeftX < rectangle2.bottomLeftX && rectangle1.bottomLeftY < rectangle2.bottomLeftY &&
+    rectangle1.topRightX > rectangle2.topRightX && rectangle1.topRightY > rectangle2.topRightY){
+
+    outerRectangle = rectangle1;
+    innerRectangle = rectangle2;
+
+  } else if (rectangle2.bottomLeftX < rectangle1.bottomLeftX && rectangle2.bottomLeftY < rectangle1.bottomLeftY &&
+    rectangle2.topRightX > rectangle1.topRightX && rectangle2.topRightY > rectangle1.topRightY) {
+
+    outerRectangle = rectangle2;
+    innerRectangle = rectangle1;
+    
+  } else {
+
+    return false;
+  }
+
+  if (innerRectangle.bottomLeftX > outerRectangle.bottomLeftX && innerRectangle.bottomLeftY > outerRectangle.bottomLeftY) {
+    if (innerRectangle.topRightX < outerRectangle.topRightX && innerRectangle.topRightY < outerRectangle.topRightY) {
+      return true;
+    } 
+  }
+
+};
+
+module.exports = isRectangleContained;
+
+
+/***/ }),
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -854,19 +853,19 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Results = __webpack_require__(12);
+var _Results = __webpack_require__(11);
 
 var _Results2 = _interopRequireDefault(_Results);
 
-var _intersection = __webpack_require__(9);
+var _intersection = __webpack_require__(3);
 
 var _intersection2 = _interopRequireDefault(_intersection);
 
-var _adjacency = __webpack_require__(7);
+var _adjacency = __webpack_require__(8);
 
 var _adjacency2 = _interopRequireDefault(_adjacency);
 
-var _containment = __webpack_require__(8);
+var _containment = __webpack_require__(9);
 
 var _containment2 = _interopRequireDefault(_containment);
 
@@ -1052,7 +1051,7 @@ var Rectangles = function (_React$Component) {
 exports.default = Rectangles;
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1131,7 +1130,7 @@ var Results = function Results(props) {
 exports.default = Results;
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1141,11 +1140,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(6);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Canvas = __webpack_require__(10);
+var _Canvas = __webpack_require__(6);
 
 var _Canvas2 = _interopRequireDefault(_Canvas);
 
@@ -1154,7 +1153,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _reactDom2.default.render(_react2.default.createElement(_Canvas2.default, null), document.getElementById('app'));
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1173,7 +1172,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1196,9 +1195,9 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var Scheduler = __webpack_require__(4);
-var checkPropTypes = __webpack_require__(3);
-var tracing = __webpack_require__(23);
+var Scheduler = __webpack_require__(5);
+var checkPropTypes = __webpack_require__(4);
+var tracing = __webpack_require__(22);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED; // Prevent newer renderers from RTE when used with older react package versions.
 // Current owner and dispatcher used to share the same ref,
@@ -26193,7 +26192,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26209,7 +26208,7 @@ exports.version = ReactVersion;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(4);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
+var aa=__webpack_require__(1),n=__webpack_require__(2),r=__webpack_require__(5);function u(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(u(227));
 function ba(a,b,c,d,e,f,g,h,k){var l=Array.prototype.slice.call(arguments,3);try{b.apply(c,l)}catch(m){this.onError(m)}}var da=!1,ea=null,fa=!1,ha=null,ia={onError:function(a){da=!0;ea=a}};function ja(a,b,c,d,e,f,g,h,k){da=!1;ea=null;ba.apply(ia,arguments)}function ka(a,b,c,d,e,f,g,h,k){ja.apply(this,arguments);if(da){if(da){var l=ea;da=!1;ea=null}else throw Error(u(198));fa||(fa=!0,ha=l)}}var la=null,ma=null,na=null;
 function oa(a,b,c){var d=a.type||"unknown-event";a.currentTarget=na(c);ka(d,b,void 0,a);a.currentTarget=null}var pa=null,qa={};
 function ra(){if(pa)for(var a in qa){var b=qa[a],c=pa.indexOf(a);if(!(-1<c))throw Error(u(96,a));if(!sa[c]){if(!b.extractEvents)throw Error(u(97,a));sa[c]=b;c=b.eventTypes;for(var d in c){var e=void 0;var f=c[d],g=b,h=d;if(ta.hasOwnProperty(h))throw Error(u(99,h));ta[h]=f;var k=f.phasedRegistrationNames;if(k){for(e in k)k.hasOwnProperty(e)&&ua(k[e],g,h);e=!0}else f.registrationName?(ua(f.registrationName,g,h),e=!0):e=!1;if(!e)throw Error(u(98,d,a));}}}}
@@ -26492,7 +26491,7 @@ exports.unstable_renderSubtreeIntoContainer=function(a,b,c,d){if(!gk(c))throw Er
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26514,7 +26513,7 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var _assign = __webpack_require__(2);
-var checkPropTypes = __webpack_require__(3);
+var checkPropTypes = __webpack_require__(4);
 
 var ReactVersion = '16.13.1';
 
@@ -28412,7 +28411,7 @@ exports.version = ReactVersion;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28444,7 +28443,7 @@ exports.useLayoutEffect=function(a,b){return Z().useLayoutEffect(a,b)};exports.u
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28801,7 +28800,7 @@ exports.unstable_wrap = unstable_wrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -28818,7 +28817,7 @@ var b=0;exports.__interactionsRef=null;exports.__subscriberRef=null;exports.unst
 
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29684,7 +29683,7 @@ exports.unstable_wrapCallback = unstable_wrapCallback;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -29712,16 +29711,16 @@ exports.unstable_shouldYield=function(){var a=exports.unstable_now();V(a);var b=
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(20);
-} else {
   module.exports = __webpack_require__(19);
+} else {
+  module.exports = __webpack_require__(18);
 }
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
