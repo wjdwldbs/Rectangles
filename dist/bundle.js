@@ -585,7 +585,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-//change to setState
 var Canvas = function (_React$Component) {
   _inherits(Canvas, _React$Component);
 
@@ -621,7 +620,7 @@ var Canvas = function (_React$Component) {
       this.state.ctx = this.state.canvas.getContext('2d');
       this.state.canvas.width = 700;
       this.state.canvas.height = 500;
-      this.state.ctx.lineWidth = 5;
+      this.state.ctx.lineWidth = 3;
     }
   }, {
     key: 'drawRectangle',
@@ -669,7 +668,10 @@ var Canvas = function (_React$Component) {
         height: this.state.height
       };
 
-      this.state.rectangles.push(coordinates);
+      var rectangles = this.state.rectangles.concat(coordinates);
+      this.setState({
+        rectangles: rectangles
+      });
     }
   }, {
     key: 'handleMouseMove',
@@ -703,7 +705,7 @@ var Canvas = function (_React$Component) {
           _react2.default.createElement(
             'p',
             null,
-            'Drag mouse to create rectangles then click RESULTS button on the right'
+            'Drag mouse to create TWO rectangles then click RESULTS button on the right for detection'
           ),
           _react2.default.createElement(
             'button',

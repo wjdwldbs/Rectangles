@@ -1,7 +1,6 @@
 import React from 'react';
 import Rectangles from './Rectangles.jsx';
 
-//change to setState
 class Canvas extends React.Component {
   constructor(){
     super();
@@ -30,7 +29,7 @@ class Canvas extends React.Component {
     this.state.ctx = this.state.canvas.getContext('2d');
     this.state.canvas.width = 700;
     this.state.canvas.height = 500;
-    this.state.ctx.lineWidth = 5;
+    this.state.ctx.lineWidth = 3;
 
   }
 
@@ -77,7 +76,10 @@ class Canvas extends React.Component {
       height: this.state.height
     }
 
-    this.state.rectangles.push(coordinates);
+    let rectangles = this.state.rectangles.concat(coordinates);
+    this.setState({
+      rectangles: rectangles
+    })
   }
 
   handleMouseMove(e) {
@@ -102,7 +104,7 @@ class Canvas extends React.Component {
     return(
       <div id="container" style={{}}>
         <div style={{}}>
-          <p>Drag mouse to create rectangles then click RESULTS button on the right</p>
+          <p>Drag mouse to create TWO rectangles then click RESULTS button on the right for detection</p>
           <button style={{fontSize:"15px"}} onClick={this.clearCanvas}>Clear Canvas</button>
         </div>
 
