@@ -19,7 +19,7 @@ Things to note:
 | --- | --- | --- |
 | Intersection | A point where a line from one rectangle meets or crosses a line from another rectangle | x-y coordinates of intersecting point(s) |
 | Containment | A rectangle wholly contains another rectangle and do not have any intersecting points | Yes or No |
-| Adjacency | A rectangle shares its right or left side with another rectangle and one does not contain nor cross the other | Yes or No |
+| Adjacency | A rectangle shares its right or left side with another rectangle | Yes or No |
 
 Defintion Examples
 ![image info](./rectangles_examples.png)
