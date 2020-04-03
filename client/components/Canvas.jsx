@@ -115,6 +115,7 @@ class Canvas extends React.Component {
       <div id="container" style={{width: "1000px", margin:"0 auto"}}>
         <div style={{}}>
           <p>Drag mouse to create TWO rectangles then click RESULTS button on the right for detection</p>
+          <p>*NOTE: The x-y coordinates of two rectangles MUST be perfectly aligned in order for a proper detection to occur.</p>
           <button style={{fontSize:"15px"}} onClick={this.clearCanvas}>
             Clear Canvas
           </button>

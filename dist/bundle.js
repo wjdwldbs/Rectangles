@@ -724,6 +724,11 @@ var Canvas = function (_React$Component) {
             'Drag mouse to create TWO rectangles then click RESULTS button on the right for detection'
           ),
           _react2.default.createElement(
+            'p',
+            null,
+            '*NOTE: The x-y coordinates of two rectangles MUST be perfectly aligned in order for a proper detection to occur.'
+          ),
+          _react2.default.createElement(
             'button',
             { style: { fontSize: "15px" }, onClick: this.clearCanvas },
             'Clear Canvas'
