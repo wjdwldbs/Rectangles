@@ -4,9 +4,10 @@
   "description": "",
   "main": "",
   "scripts": {
+    "start": "node server",
     "test": "./node_modules/.bin/mocha",
-    "open": "open dist/index.html",
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "open": "open http://localhost:3000"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "webpack": "^2.7.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   }

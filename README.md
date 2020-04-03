@@ -36,7 +36,14 @@ Run tests with:
 $ npm test
 ```
 
-Open the app with: 
+Start and run the app with: 
+
+```bash
+$ npm run start
+$ npm run build
+```
+
+Once server is running, open the app with: 
 
 ```bash
 $ npm run open
@@ -50,5 +57,6 @@ $ npm run open
 - babel-preset-env
 - babel-preset-react
 - webpack
+- express
 - chai
 - mocha
