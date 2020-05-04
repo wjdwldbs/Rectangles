@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wjdwldbs/nuvalence_rectangle.git"
+    "url": "git+https://github.com/wjdwldbs/rectangle.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wjdwldbs/nuvalence_rectangle/issues"
+    "url": "https://github.com/wjdwldbs/rectangle/issues"
   },
-  "homepage": "https://github.com/wjdwldbs/nuvalence_rectangle#readme",
+  "homepage": "https://github.com/wjdwldbs/rectangle#readme",
   "devDependencies": {
     "chai": "^4.2.0",
     "mocha": "^7.1.1",
