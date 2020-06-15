@@ -21,9 +21,6 @@ Things to note:
 | Containment | A rectangle wholly contains another rectangle and do not have any intersecting points | Yes or No |
 | Adjacency | A rectangle shares its right or left side with another rectangle | Yes or No |
 
-Defintion Examples
-![image info](./rectangles_examples.png)
-
 ## Requirements <a name="requirements"></a>
 You will need [Node.js](https://nodejs.org/en/) installed on your system.
 
